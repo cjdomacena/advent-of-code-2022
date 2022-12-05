@@ -41,21 +41,16 @@ const moveCargos = (inputs: string[], stack: string[][]) => {
   while (i < inputs.length) {
     const { amount, moveFrom, moveTo } = getMoves(inputs[i]);
     let tempStack: any = [];
-    let index = moveFrom;
     for (let j = 0; j < amount; j++) {
-      //   if (stack[index].length - 1 < 0) {
-      //     index++;
-      //   }
       //   console.log("Original Stack: ", stack);
       //   console.log("Move Amount: ", amount);
       //   console.log("Move: ", stack[index]);
       //   console.log("-------------------------------");
-      const popper = stack[index].pop();
+      const popper = stack[moveFrom].pop();
       tempStack.push(popper);
-      //   console.log("Result: ", tempStack);
     }
-    tempStack = tempStack.reverse();
-    for (let j = 0; j < tempStack.length; j++) {
+
+    for (let j = tempStack.length - 1; j >= 0; j--) {
       stack[moveTo].push(tempStack[j]);
     }
     i++;
