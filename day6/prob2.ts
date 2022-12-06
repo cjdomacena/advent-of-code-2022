@@ -34,7 +34,7 @@ const checkDuplicates = (arr: string[]) => {
 // main fn
 const mainFn = (inputs: string[]) => {
   let i = 0;
-  let end = 4;
+  let end = 14;
   while (i < inputs.length) {
     const window = getWindow(i, inputs, end);
     const hasDuplicates = checkDuplicates(window);
